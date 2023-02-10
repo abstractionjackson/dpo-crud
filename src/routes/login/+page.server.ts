@@ -5,12 +5,8 @@ export const actions = {
 	default: async (event) => {
 		const data = await event.request.formData();
 		const email = data.get('email');
-		try {
-			const { data } = await supabase.auth.signInWithOtp({ email });
-			return { success: true, email };
-		} catch (error) {
-			console.error(error);
-			return { success: false };
-		}
+		const { data, error } = await supabase.auth.signInWithOtp({ email });
+		if (error) return { success: false };
+		return { success: true, email };
 	}
 } satisfies Actions;

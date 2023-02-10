@@ -5,7 +5,7 @@
 	export let form: ActionData;
 	let loading: boolean = false;
 
-	const signIn: SubmitFunction = async () => {
+	const signIn: SubmitFunction = () => {
 		loading = true;
 
 		return function ({ update }) {
@@ -20,7 +20,13 @@
 		<h2 class="my-4 text-xl font-bold">Sign In</h2>
 	</header>
 	<form method="POST" use:enhance={signIn} class="flex flex-col">
-		<input type="text" class="input-primary input my-4" name="email" placeholder="Email" />
+		<input
+			required
+			type="email"
+			class="input-primary input my-4"
+			name="email"
+			placeholder="Email"
+		/>
 		<button type="submit" class="btn-primary btn" disabled={loading}>Sign In</button>
 	</form>
 	{#if form?.success}
