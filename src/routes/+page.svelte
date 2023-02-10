@@ -5,8 +5,8 @@
 	let description: string = 'A todo list that features Duration, Path, and Outcome fields';
 </script>
 
-<main class="mx-auto flex w-fit flex-1 flex-col justify-center text-center">
-	<header class="border p-12 shadow">
+<main class="mx-auto flex w-fit flex-1 flex-col justify-start text-center">
+	<header class="mt-12 border p-12 shadow">
 		<h1 class="text-xl font-bold">{title}</h1>
 		<p class="my-4">{description}</p>
 		{#if $page.data.session}
